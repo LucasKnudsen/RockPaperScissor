@@ -24,6 +24,7 @@ function App() {
 
     if (user === "scissor" || user === "rock" || user === "paper") {
       setComputerChoice(comp);
+      
       if (comp === user) {
         document.getElementById("winner").innerHTML = "It's a tie!"
       } else if (user === "scissor" && comp === "rock") {
@@ -42,7 +43,7 @@ function App() {
     } else {
       alert('Wrong Word!')
     }
-
+    setUserChoice("")
   }
 
   return (
