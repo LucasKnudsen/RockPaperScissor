@@ -2,9 +2,30 @@ h3 {
   color: #f3f3f3;
   font-size: 25px!important;
 }
-.vertical-center {
-  padding-top: 25vh!important;
+
+#reset {
+  visibility: hidden;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 15px;
 }
+
+#info {
+  visibility: hidden;
+}
+
+.vertical-center {
+  padding-top: 15vh!important;
+}
+.box {
+  display: block!important;
+  width: 100%;
+  text-align: center;
+}
+
 .choice {
   cursor: pointer;
   width: 125px;
@@ -13,7 +34,6 @@ h3 {
   border-radius: 15%;
   border: none;
   box-shadow: 2px 2px rgb(22, 20, 20);
-  
 }
 .scissor-button {
   background: url("./assets/scissor.png")

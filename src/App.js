@@ -1,10 +1,12 @@
 import './App.css';
 import React, { useState } from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 
 function App() {
   const [userChoice, setUserChoice] = useState('')
   const [computerChoice, setComputerChoice] = useState('')
+  const [computerPoints, setComputerPoints] = useState(0)
+  const [userPoints, setUserPoints] = useState(0)
 
   const makeComputerChoice = () => {
     let result
@@ -23,34 +25,53 @@ function App() {
     let comp = makeComputerChoice()
     setUserChoice(user)
     setComputerChoice(comp);
+    document.getElementById('reset').style.visibility = 'visible'
+    document.getElementById('info').style.visibility = 'visible'
 
     if (comp === user) {
       document.getElementById("winner").innerHTML = "It's a tie!"
 
     } else if (user === "scissor" && comp === "rock") {
       document.getElementById("winner").innerHTML = "You LOSE!"
+      setComputerPoints(computerPoints + 1)
 
     } else if (user === "scissor" && comp === "paper") {
       document.getElementById("winner").innerHTML = "You WIN!"
+      setUserPoints(userPoints + 1)
 
     } else if (user === "rock" && comp === "paper") {
       document.getElementById("winner").innerHTML = "You LOSE!"
+      setComputerPoints(computerPoints + 1)
 
     } else if (user === "rock" && comp === "scissor") {
       document.getElementById("winner").innerHTML = "You WIN!"
+      setUserPoints(userPoints + 1)
 
     } else if (user === "paper" && comp === "scissor") {
       document.getElementById("winner").innerHTML = "You LOSE!"
+      setComputerPoints(computerPoints + 1)
 
     } else if (user === "paper" && comp === "rock") {
       document.getElementById("winner").innerHTML = "You WIN!"
+      setUserPoints(userPoints + 1)
     }
+  }
+
+  const resetGame = () => {
+    setComputerPoints(0)
+    setUserPoints(0)
+    document.getElementById('info').style.visibility = 'hidden'
+    document.getElementById('reset').style.visibility = 'hidden'
   }
 
   return (
     <div>
-      <Grid >
-        <Grid.Row className="vertical-center" centered columns={3} >
+
+      <Grid textAlign="center" className="vertical-center">
+        <Header className="box" color="yellow" size="huge">ROCK PAPER SCISSORS BABY!</Header>
+        <Header textAlign="center" color="yellow" size="middle" >Your points: {userPoints}. <br></br>Computer's points: {computerPoints}.</Header>
+
+        <Grid.Row centered columns={3} >
           <Grid.Column textAlign="right">
             <button role="rock" className="rock-button choice" onClick={() => { playGame("rock") }} />
           </Grid.Column>
@@ -61,18 +82,16 @@ function App() {
             <button className="scissor-button choice" onClick={() => { playGame("scissor") }} />
           </Grid.Column>
         </Grid.Row>
+        
         <Grid.Row centered columns={2}>
-          <Grid.Column textAlign="center">
+          <Grid.Column id="info" textAlign="center">
             <h3 id="userChoice">{userChoice && `You chose: ${userChoice}`}</h3>
             <h3 id="computerChoice">{computerChoice && `Computer chose: ${computerChoice}`}</h3>
             <h3 id="winner"></h3>
+            <button id="reset" onClick={() => resetGame()}>Reset</button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-
-
-
-
 
     </div>
 

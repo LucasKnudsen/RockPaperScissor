@@ -49,3 +49,15 @@ As a developer
 To know that my app works  
 I need to test the functionality  
 **Cypress testing & unit testing**
+
+### Step 3 - Adding Scoreboard
+
+As a user
+So I know who's the ultimate champion
+I need a score system
+**Point system stores in state that adds 1 after each game**
+
+As a user
+In order to reset a session *(computer was just lucky!)*
+I need to be able to reset the score
+**Button that sets state back to 0**
