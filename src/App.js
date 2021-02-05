@@ -53,14 +53,9 @@ function App() {
       <h3 id="userChoice">You chose: </h3>
       <h3 id="computerChoice">Computer chose: {computerChoice}</h3>
       <h3 id="winner"></h3>
-      <button className="rock-button choice">
-        <img alt="rock"/>
-      </button>
-      <button className="paper-button choice">
-
-      </button>
-      <button className="scissor-button choice">
-      </button>
+      <button className="rock-button choice"></button>
+      <button className="paper-button choice"></button>
+      <button className="scissor-button choice"></button>
     </div>
 
   );
