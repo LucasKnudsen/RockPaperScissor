@@ -5,7 +5,7 @@ function App() {
   const [userChoice, setUserChoice] = useState('')
   const [computerChoice, setComputerChoice] = useState('')
 
-  useEffect(() => {
+  const makeComputerChoice = () => {
     let result
     let chance = Math.floor(Math.random() * 3)
     if (chance === 0) {
@@ -16,12 +16,16 @@ function App() {
       result = 'rock'
     }
     setComputerChoice(result)
-  })
+  }
+
+  const playGame = () => {
+    
+  }
 
   return (
     <div>
-      <input type="text" />
-      <input type="submit" />
+      <input type="text" value={userChoice} onChange={(event) => setUserChoice(event.target.value) }/>
+      <input type="submit" onClick={() => this.playGame() }/>
       <h3 id="userChoice">You chose: </h3>
       <h3 id="computerChoice">Computer chose: {computerChoice}</h3>
       <h3 id="winner">You win?</h3>
