@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
+import { Grid } from 'semantic-ui-react'
 
 function App() {
   const [userChoice, setUserChoice] = useState('')
@@ -48,19 +49,31 @@ function App() {
 
   return (
     <div>
-      <h3 id="userChoice">You chose: {userChoice}</h3>
-      <h3 id="computerChoice">Computer chose: {computerChoice}</h3>
-      <h3 id="winner"></h3>
-      <button role="rock" className="rock-button choice" onClick={() => {
-        playGame("rock")
-      }}>
-      </button>
-      <button className="paper-button choice" onClick={() => {
-        playGame("paper")
-      }}></button>
-      <button className="scissor-button choice" onClick={() => {
-        playGame("scissor")
-      }}></button>
+      <Grid >
+        <Grid.Row className="vertical-center" centered columns={3} >
+          <Grid.Column textAlign="right">
+            <button role="rock" className="rock-button choice" onClick={() => { playGame("rock") }} />
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <button className="paper-button choice" onClick={() => { playGame("paper") }} />
+          </Grid.Column>
+          <Grid.Column textAlign="left">
+            <button className="scissor-button choice" onClick={() => { playGame("scissor") }} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row centered columns={2}>
+          <Grid.Column textAlign="center">
+            <h3 id="userChoice">{userChoice && `You chose: ${userChoice}`}</h3>
+            <h3 id="computerChoice">{computerChoice && `Computer chose: ${computerChoice}`}</h3>
+            <h3 id="winner"></h3>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
+
+
+
+
     </div>
 
   );
