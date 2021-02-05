@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 function App() {
   const [userChoice, setUserChoice] = useState('')
@@ -15,20 +15,25 @@ function App() {
     } else {
       result = 'rock'
     }
-    setComputerChoice(result)
+    // setComputerChoice(result)
+    return result
   }
-
-  const playGame = () => {
-    
+  let iWin
+  const playGame = (userChoice) => {
+    let comp = makeComputerChoice()
+    debugger
+    if (userChoice !== 'scissor' || userChoice !== 'rock' || userChoice !== 'paper' ) {
+      alert('Wrong Word!')
+    }
   }
 
   return (
     <div>
       <input type="text" value={userChoice} onChange={(event) => setUserChoice(event.target.value) }/>
-      <input type="submit" onClick={() => this.playGame() }/>
+      <input type="submit" onClick={() => playGame() }/>
       <h3 id="userChoice">You chose: </h3>
       <h3 id="computerChoice">Computer chose: {computerChoice}</h3>
-      <h3 id="winner">You win?</h3>
+      <h3 id="winner">You {iWin}!</h3>
     </div>
 
   );
