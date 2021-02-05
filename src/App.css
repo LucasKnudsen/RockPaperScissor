@@ -1,0 +1,26 @@
+h3 {
+  color: #f3f3f3;
+  font-size: 25px!important;
+}
+.vertical-center {
+  padding-top: 25vh!important;
+}
+.choice {
+  cursor: pointer;
+  width: 125px;
+  height: 125px;
+  object-fit:fill;
+  border-radius: 15%;
+  border: none;
+  box-shadow: 2px 2px rgb(22, 20, 20);
+  
+}
+.scissor-button {
+  background: url("./assets/scissor.png")
+}
+.rock-button {
+  background: url("./assets/rock.png")
+}
+.paper-button {
+  background: url("./assets/paper.png")
+}
