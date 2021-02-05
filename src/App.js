@@ -73,7 +73,7 @@ function App() {
 
         <Grid.Row centered columns={3} >
           <Grid.Column textAlign="right">
-            <button role="rock" className="rock-button choice" onClick={() => { playGame("rock") }} />
+            <button className="rock-button choice" onClick={() => { playGame("rock") }} />
           </Grid.Column>
           <Grid.Column textAlign="center">
             <button className="paper-button choice" onClick={() => { playGame("paper") }} />
@@ -82,12 +82,12 @@ function App() {
             <button className="scissor-button choice" onClick={() => { playGame("scissor") }} />
           </Grid.Column>
         </Grid.Row>
-        
+
         <Grid.Row centered columns={2}>
           <Grid.Column id="info" textAlign="center">
-            <h3 id="userChoice">{userChoice && `You chose: ${userChoice}`}</h3>
-            <h3 id="computerChoice">{computerChoice && `Computer chose: ${computerChoice}`}</h3>
-            <h3 id="winner"></h3>
+            <p id="userChoice">{userChoice && `You chose: ${userChoice}`}</p>
+            <p id="computerChoice">{computerChoice && `Computer chose: ${computerChoice}`}</p>
+            <p id="winner"></p>
             <button id="reset" onClick={() => resetGame()}>Reset</button>
           </Grid.Column>
         </Grid.Row>
