@@ -21,41 +21,43 @@ function App() {
 
   const playGame = (user) => {
     let comp = makeComputerChoice()
+    setComputerChoice(comp);
 
-    if (user === "scissor" || user === "rock" || user === "paper") {
-      setComputerChoice(comp);
-      
-      if (comp === user) {
-        document.getElementById("winner").innerHTML = "It's a tie!"
-      } else if (user === "scissor" && comp === "rock") {
-        document.getElementById("winner").innerHTML = "You WIN!"
-      } else if (user === "scissor" && comp === "paper") {
-        document.getElementById("winner").innerHTML = "You LOSE!"
-      } else if (user === "rock" && comp === "paper") {
-        document.getElementById("winner").innerHTML = "You LOSE!"
-      } else if (user === "rock" && comp === "scissor") {
-        document.getElementById("winner").innerHTML = "You WIN!"
-      } else if (user === "paper" && comp === "scissor") {
-        document.getElementById("winner").innerHTML = "You LOSE!"
-      } else if (user === "paper" && comp === "rock") {
-        document.getElementById("winner").innerHTML = "You WIN!"
-      }
-    } else {
-      alert('Wrong Word!')
+    if (comp === user) {
+      document.getElementById("winner").innerHTML = "It's a tie!"
+    } else if (user === "scissor" && comp === "rock") {
+      document.getElementById("winner").innerHTML = "You WIN!"
+    } else if (user === "scissor" && comp === "paper") {
+      document.getElementById("winner").innerHTML = "You LOSE!"
+    } else if (user === "rock" && comp === "paper") {
+      document.getElementById("winner").innerHTML = "You LOSE!"
+    } else if (user === "rock" && comp === "scissor") {
+      document.getElementById("winner").innerHTML = "You WIN!"
+    } else if (user === "paper" && comp === "scissor") {
+      document.getElementById("winner").innerHTML = "You LOSE!"
+    } else if (user === "paper" && comp === "rock") {
+      document.getElementById("winner").innerHTML = "You WIN!"
     }
-    setUserChoice("")
   }
 
   return (
     <div>
-      <input type="text" value={userChoice} onChange={(event) => setUserChoice(event.target.value)} />
-      <button type="submit" onClick={() => playGame(userChoice)}>Start Game!</button>
-      <h3 id="userChoice">You chose: </h3>
+      <h3 id="userChoice">You chose: {userChoice}</h3>
       <h3 id="computerChoice">Computer chose: {computerChoice}</h3>
       <h3 id="winner"></h3>
-      <button className="rock-button choice"></button>
-      <button className="paper-button choice"></button>
-      <button className="scissor-button choice"></button>
+      <button className="rock-button choice" onClick={() => {
+        setUserChoice("rock")
+        playGame(userChoice)
+      }}>
+      </button>
+      <button className="paper-button choice" onClick={() => {
+        setUserChoice("paper")
+        playGame(userChoice)
+      }}></button>
+      <button className="scissor-button choice" onClick={() => {
+        setUserChoice("scissor")
+        playGame(userChoice)
+      }}></button>
     </div>
 
   );
