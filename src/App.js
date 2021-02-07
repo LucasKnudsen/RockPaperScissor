@@ -73,13 +73,25 @@ function App() {
 
         <Grid.Row centered columns={3} >
           <Grid.Column textAlign="right">
-            <button className="rock-button choice" onClick={() => { playGame("rock") }} />
+            <button className="rock-button choice"
+              onClick={() => { playGame("rock") }}
+              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
+              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+            />
           </Grid.Column>
           <Grid.Column textAlign="center">
-            <button className="paper-button choice" onClick={() => { playGame("paper") }} />
+            <button className="paper-button choice"
+              onClick={() => { playGame("paper") }} 
+              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
+              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+            />
           </Grid.Column>
           <Grid.Column textAlign="left">
-            <button className="scissor-button choice" onClick={() => { playGame("scissor") }} />
+            <button className="scissor-button choice"
+              onClick={() => { playGame("scissor") }} 
+              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
+              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+            />
           </Grid.Column>
         </Grid.Row>
 
