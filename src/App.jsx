@@ -5,6 +5,7 @@ import { Grid, Header } from 'semantic-ui-react'
 function App() {
   const [userChoice, setUserChoice] = useState('')
   const [computerChoice, setComputerChoice] = useState('')
+
   const [computerPoints, setComputerPoints] = useState(0)
   const [userPoints, setUserPoints] = useState(0)
 
@@ -68,8 +69,12 @@ function App() {
     <div>
 
       <Grid textAlign="center" className="vertical-center">
-        <Header className="box" color="yellow" size="huge">ROCK PAPER SCISSORS BABY!</Header>
-        <Header textAlign="center" color="yellow" size="middle" >Your points: {userPoints}. <br></br>Computer's points: {computerPoints}.</Header>
+        <Header className="box" color="yellow" size="huge">
+          ROCK PAPER SCISSORS BABY!
+        </Header>
+        <Header textAlign="center" color="yellow" size="medium" >
+          Your points: {userPoints}. <br></br>Computer's points: {computerPoints}.
+        </Header>
 
         <Grid.Row centered columns={3} >
           <Grid.Column textAlign="right">
@@ -81,14 +86,14 @@ function App() {
           </Grid.Column>
           <Grid.Column textAlign="center">
             <button className="paper-button choice"
-              onClick={() => { playGame("paper") }} 
+              onClick={() => { playGame("paper") }}
               onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
               onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
             />
           </Grid.Column>
           <Grid.Column textAlign="left">
             <button className="scissor-button choice"
-              onClick={() => { playGame("scissor") }} 
+              onClick={() => { playGame("scissor") }}
               onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
               onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
             />

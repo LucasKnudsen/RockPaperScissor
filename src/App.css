@@ -2,6 +2,15 @@ p {
   color: #f3f3f3;
   font-size: 25px!important;
 }
+#root {
+  animation: fade 0.9s ease-in
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+}
 
 #reset {
   visibility: hidden;
@@ -10,7 +19,7 @@ p {
   padding: 10px 15px;
   font-size: 20px;
   border: none;
-  border-radius: 15px;
+  border-radius: 15px; 
 }
 
 #info {
