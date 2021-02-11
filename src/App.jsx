@@ -85,7 +85,7 @@ function App() {
             />
           </Grid.Column>
           <Grid.Column textAlign="center">
-            <button className="paper-button choice"
+            <button value="rock" className="paper-button choice"
               onClick={() => { playGame("paper") }}
               onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
               onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
