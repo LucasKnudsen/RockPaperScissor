@@ -21,43 +21,43 @@ function App() {
     }
     return result
   }
-
+  
   const playGame = (user) => {
     let comp = makeComputerChoice()
     setUserChoice(user)
     setComputerChoice(comp);
     document.getElementById('reset').style.visibility = 'visible'
     document.getElementById('info').style.visibility = 'visible'
-
+  
     if (comp === user) {
       document.getElementById("winner").innerHTML = "It's a tie!"
-
+  
     } else if (user === "scissor" && comp === "rock") {
       document.getElementById("winner").innerHTML = "You LOSE!"
       setComputerPoints(computerPoints + 1)
-
+  
     } else if (user === "scissor" && comp === "paper") {
       document.getElementById("winner").innerHTML = "You WIN!"
       setUserPoints(userPoints + 1)
-
+  
     } else if (user === "rock" && comp === "paper") {
       document.getElementById("winner").innerHTML = "You LOSE!"
       setComputerPoints(computerPoints + 1)
-
+  
     } else if (user === "rock" && comp === "scissor") {
       document.getElementById("winner").innerHTML = "You WIN!"
       setUserPoints(userPoints + 1)
-
+  
     } else if (user === "paper" && comp === "scissor") {
       document.getElementById("winner").innerHTML = "You LOSE!"
       setComputerPoints(computerPoints + 1)
-
+  
     } else if (user === "paper" && comp === "rock") {
       document.getElementById("winner").innerHTML = "You WIN!"
       setUserPoints(userPoints + 1)
     }
   }
-
+  
   const resetGame = () => {
     setComputerPoints(0)
     setUserPoints(0)
@@ -73,8 +73,6 @@ function App() {
   }
 
   return (
-    <div>
-
       <Grid textAlign="center" className="vertical-center">
         <Header className="box" color="yellow" size="huge">
           ROCK PAPER SCISSORS BABY!
@@ -116,9 +114,6 @@ function App() {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-
-    </div>
-
   );
 }
 
