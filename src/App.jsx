@@ -65,6 +65,13 @@ function App() {
     document.getElementById('reset').style.visibility = 'hidden'
   }
 
+  const onHover = (event) => {
+    event.target.style.transform = 'scale(1.05,1.05)'
+  }
+  const hoverOut = (event) => {
+    event.target.style.transform = 'scale(1,1)'
+  }
+
   return (
     <div>
 
@@ -80,22 +87,22 @@ function App() {
           <Grid.Column textAlign="right">
             <button className="rock-button choice"
               onClick={() => { playGame("rock") }}
-              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
-              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+              onMouseOver={(event) => onHover(event)}
+              onMouseOut={(event) => hoverOut(event)}
             />
           </Grid.Column>
           <Grid.Column textAlign="center">
             <button value="rock" className="paper-button choice"
               onClick={() => { playGame("paper") }}
-              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
-              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+              onMouseOver={(event) => onHover(event)}
+              onMouseOut={(event) => hoverOut(event)}
             />
           </Grid.Column>
           <Grid.Column textAlign="left">
             <button className="scissor-button choice"
               onClick={() => { playGame("scissor") }}
-              onMouseOver={(event) => event.target.style.transform = 'scale(1.05,1.05)'}
-              onMouseOut={(event) => event.target.style.transform = 'scale(1,1)'}
+              onMouseOver={(event) => onHover(event)}
+              onMouseOut={(event) => hoverOut(event)}
             />
           </Grid.Column>
         </Grid.Row>
