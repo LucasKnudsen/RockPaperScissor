@@ -62,5 +62,3 @@ As a user
 In order to reset a session *(computer was just lucky!)*  
 I need to be able to reset the score  
 **Button that sets state back to 0**  
-
-### Step 4 -
