@@ -3,7 +3,8 @@
 ## Problem Statement
 
 An antarctic researcher has been alone on a research mission for quite some time now. She misses human interaction and especially playing rock, paper, scissors, however the frozen desert offers only solitude. Thus she has asked us for help.
-With this app, the lone researcher will be able to play her beloved game against her only current company - her computer. 
+With this app, the lone researcher will be able to play her beloved game against her only current company - her computer.  
+Deployed version: https://rockzpaperzscissorz.netlify.app/
 
 ## User stories
 
