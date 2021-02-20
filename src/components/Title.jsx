@@ -7,7 +7,7 @@ const Title = ({ userPoints, computerPoints }) => {
       <Header className="box" color="yellow" size="huge">
         ROCK PAPER SCISSORS BABY!
       </Header>
-      <Header textAlign="center" color="yellow" size="medium" >
+      <Header data-cy="points" textAlign="center" color="yellow" size="medium" >
         Your points: {userPoints}.
         <br></br>
         Computer's points: {computerPoints}.

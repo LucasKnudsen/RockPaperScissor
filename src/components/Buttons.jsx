@@ -12,7 +12,7 @@ const Buttons = (props) => {
 
     if (winner === 'user') {
       props.setUserPoints(userPoints + 1)
-      props.setWinner("You won!!")
+      props.setWinner("You win!!")
     } else if (winner === 'computer') {
       props.setComputerPoints(computerPoints + 1)
       props.setWinner("You lost...")
