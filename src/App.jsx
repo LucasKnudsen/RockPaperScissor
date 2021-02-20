@@ -3,53 +3,38 @@ import Title from './components/Title'
 import Buttons from './components/Buttons'
 import Results from './components/Results'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Grid } from 'semantic-ui-react'
 
-class App extends React.Component {
-  state = {
-    userChoice: '',
-    computerChoice: '',
-    computerPoints: 0,
-    userPoints: 0
-  }
+const App = () => {
+  const [userChoice, setUserChoice] = useState('')
+  const [computerChoice, setComputerChoice] = useState('')
 
-  setUserChoice = (choice) => {
-    this.setState({userChoice: choice})
-  }
-  setComputerChoice = (choice) => {
-    this.setState({computerChoice: choice})
-  }
-  setUserPoints = (points) => {
-    this.setState({userPoints: points})
-  }
-  setComputerPoints = (points) => {
-    this.setState({computerPoints: points})
-  }
+  const [computerPoints, setComputerPoints] = useState(0)
+  const [userPoints, setUserPoints] = useState(0)
 
-  render() {
-    const {userPoints, computerPoints, userChoice, computerChoice} = this.state
-    return (
-      <Grid textAlign="center" className="vertical-center">
-        <Title userPoints={userPoints} computerPoints={computerPoints} />
-        <Buttons
-          userPoints={userPoints}
-          computerPoints={computerPoints}
-          setUserChoice={this.setUserChoice}
-          setComputerChoice={this.setComputerChoice}
-          setUserPoints={this.setUserPoints}
-          setComputerPoints={this.setComputerPoints}
-        />
-        <Results
-          setUserPoints={this.setUserPoints}
-          setComputerPoints={this.setComputerPoints}
-          userChoice={userChoice}
-          computerChoice={computerChoice}
-        />
-      </Grid>
 
-    );
-  }
+  return (
+    <Grid textAlign="center" className="vertical-center">
+      <Title userPoints={userPoints} computerPoints={computerPoints} />
+      <Buttons
+        userPoints={userPoints}
+        computerPoints={computerPoints}
+        setUserChoice={setUserChoice}
+        setComputerChoice={setComputerChoice}
+        setUserPoints={setUserPoints}
+        setComputerPoints={setComputerPoints}
+      />
+      <Results
+        setUserPoints={setUserPoints}
+        setComputerPoints={setComputerPoints}
+        userChoice={userChoice}
+        computerChoice={computerChoice}
+      />
+    </Grid>
+
+  );
+
 }
 
 export default App;
