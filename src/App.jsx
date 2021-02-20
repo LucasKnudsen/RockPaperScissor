@@ -27,56 +27,6 @@ class App extends React.Component {
     this.setState({computerPoints: points})
   }
 
-
-  // const playGame = (user) => {
-  //   let comp = makeComputerChoice()
-  //   setUserChoice(user)
-  //   setComputerChoice(comp);
-  //   document.getElementById('reset').style.visibility = 'visible'
-  //   document.getElementById('info').style.visibility = 'visible'
-
-  //   if (comp === user) {
-  //     document.getElementById("winner").innerHTML = "It's a tie!"
-
-  //   } else if (user === "scissor" && comp === "rock") {
-  //     document.getElementById("winner").innerHTML = "You LOSE!"
-  //     setComputerPoints(computerPoints + 1)
-
-  //   } else if (user === "scissor" && comp === "paper") {
-  //     document.getElementById("winner").innerHTML = "You WIN!"
-  //     setUserPoints(userPoints + 1)
-
-  //   } else if (user === "rock" && comp === "paper") {
-  //     document.getElementById("winner").innerHTML = "You LOSE!"
-  //     setComputerPoints(computerPoints + 1)
-
-  //   } else if (user === "rock" && comp === "scissor") {
-  //     document.getElementById("winner").innerHTML = "You WIN!"
-  //     setUserPoints(userPoints + 1)
-
-  //   } else if (user === "paper" && comp === "scissor") {
-  //     document.getElementById("winner").innerHTML = "You LOSE!"
-  //     setComputerPoints(computerPoints + 1)
-
-  //   } else if (user === "paper" && comp === "rock") {
-  //     document.getElementById("winner").innerHTML = "You WIN!"
-  //     setUserPoints(userPoints + 1)
-  //   }
-  // }
-
-  // const resetGame = () => {
-  //   setComputerPoints(0)
-  //   setUserPoints(0)
-  //   document.getElementById('info').style.visibility = 'hidden'
-  //   document.getElementById('reset').style.visibility = 'hidden'
-  // }
-
-  // const onHover = (event) => {
-  //   event.target.style.transform = 'scale(1.05,1.05)'
-  // }
-  // const hoverOut = (event) => {
-  //   event.target.style.transform = 'scale(1,1)'
-  // }
   render() {
     const {userPoints, computerPoints, userChoice, computerChoice} = this.state
     return (
@@ -85,14 +35,14 @@ class App extends React.Component {
         <Buttons
           userPoints={userPoints}
           computerPoints={computerPoints}
-          setUserChoice={() => this.setUserChoice()}
-          setComputerChoice={() => this.setComputerChoice()}
-          setUserPoints={() => this.setUserPoints()}
-          setComputerPoints={() => this.setComputerPoints()}
+          setUserChoice={this.setUserChoice}
+          setComputerChoice={this.setComputerChoice}
+          setUserPoints={this.setUserPoints}
+          setComputerPoints={this.setComputerPoints}
         />
         <Results
-          setUserPoints={() => this.setUserPoints()}
-          setComputerPoints={() => this.setComputerPoints()}
+          setUserPoints={this.setUserPoints}
+          setComputerPoints={this.setComputerPoints}
           userChoice={userChoice}
           computerChoice={computerChoice}
         />
