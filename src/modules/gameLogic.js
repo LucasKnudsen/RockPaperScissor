@@ -11,4 +11,25 @@ const makeComputerChoice = () => {
   return result
 }
 
-export { makeComputerChoice }
+const evaluateWinner = (userChoice) => {
+  let compChoice = makeComputerChoice()
+  let winner
+  if (compChoice === userChoice) {
+    winner = "tie"
+  } else if (userChoice === "scissor" && compChoice === "rock") {
+    winner = "computer"
+  } else if (userChoice === "scissor" && compChoice === "paper") {
+    winner = "user"
+  } else if (userChoice === "rock" && compChoice === "paper") {
+    winner = "computer"
+  } else if (userChoice === "rock" && compChoice === "scissor") {
+    winner = "user"
+  } else if (userChoice === "paper" && compChoice === "scissor") {
+    winner = "computer"
+  } else if (userChoice === "paper" && compChoice === "rock") {
+    winner = "user"
+  }
+  return [winner, compChoice] 
+}
+
+export { makeComputerChoice, evaluateWinner }

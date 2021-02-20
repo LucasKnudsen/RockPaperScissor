@@ -1,43 +1,23 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
-import { makeComputerChoice } from '../modules/gameLogic'
+import { evaluateWinner } from '../modules/gameLogic'
 
 const Buttons = (props) => {
   const { userPoints, computerPoints } = props
 
-  const playGame = (user) => {
-    let comp = makeComputerChoice()
-    props.setUserChoice(user)
-    props.setComputerChoice(comp);
-    document.getElementById('reset').style.visibility = 'visible'
-    document.getElementById('info').style.visibility = 'visible'
-  
-    if (comp === user) {
-      document.getElementById("winner").innerHTML = "It's a tie!"
-  
-    } else if (user === "scissor" && comp === "rock") {
-      document.getElementById("winner").innerHTML = "You LOSE!"
-      props.setComputerPoints(computerPoints + 1)
-  
-    } else if (user === "scissor" && comp === "paper") {
-      document.getElementById("winner").innerHTML = "You WIN!"
+  const playGame = (userChoice) => {
+    let [winner, compChoice] = evaluateWinner(userChoice)
+    props.setUserChoice(userChoice)
+    props.setComputerChoice(compChoice);
+
+    if (winner === 'user') {
       props.setUserPoints(userPoints + 1)
-  
-    } else if (user === "rock" && comp === "paper") {
-      document.getElementById("winner").innerHTML = "You LOSE!"
+      props.setWinner("You won!!")
+    } else if (winner === 'computer') {
       props.setComputerPoints(computerPoints + 1)
-  
-    } else if (user === "rock" && comp === "scissor") {
-      document.getElementById("winner").innerHTML = "You WIN!"
-      props.setUserPoints(userPoints + 1)
-  
-    } else if (user === "paper" && comp === "scissor") {
-      document.getElementById("winner").innerHTML = "You LOSE!"
-      props.setComputerPoints(computerPoints + 1)
-  
-    } else if (user === "paper" && comp === "rock") {
-      document.getElementById("winner").innerHTML = "You WIN!"
-      props.setUserPoints(userPoints + 1)
+      props.setWinner("You lost...")
+    } else {
+      props.setWinner("It's a tie! Go again!")
     }
   }
 
@@ -47,7 +27,7 @@ const Buttons = (props) => {
   const hoverOut = (event) => {
     event.target.style.transform = 'scale(1,1)'
   }
-  
+
   return (
     <Grid.Row centered columns={3} >
       <Grid.Column textAlign="right">
